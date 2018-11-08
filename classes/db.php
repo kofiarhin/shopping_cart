@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Db {
 
@@ -17,7 +17,11 @@ class Db {
 		$this->pdo = new PDO("mysql:host=localhost;dbname=test", 'root', 'root');
 
 
-		
+
+		echo "connected";
+
+
+
 	}
 
 
@@ -209,7 +213,7 @@ class Db {
 			if(!$this->query($sql, $fields)->error()) {
 
 				//echo "account updated";
-				
+
 				return true;
 			}
 
