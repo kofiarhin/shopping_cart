@@ -8,16 +8,19 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>Shopping Cart</title>
+
+  <!–-- Bootstrap -–>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!–-- custom css -–>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<?php
+<button class="btn btn-primary">click Me</button> 
 
-
-        $db  = db::get_instance();
-
-  ?>
 
 </body>
 </html>
