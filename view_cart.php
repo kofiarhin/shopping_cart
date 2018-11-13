@@ -43,7 +43,7 @@ require_once "header.php";
 
             'user_id' => (int) session::get('user'),
             'product_id' => (int) $field['product_id'],
-            'quantity' =>  (int) input::get("product_quantity"),
+            'quantity' =>  (int) $field['product_quantity'],
             'status' => 0,
             'created_on' => date::timestamp()
 

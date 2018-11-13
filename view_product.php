@@ -4,7 +4,7 @@ require_once "header.php";
 
 $user = new User;
 
-$product_id = input::get('id');
+$product_id = input::get('product_id');
 
 $product = new Product;
 
@@ -20,10 +20,14 @@ if(!$data) {
   redirect::to('index.php');
 }
 
+
+
+
 $product_name = $data->product_name;
 $product_price = $data->product_price;
 $product_description = $data->product_description;
 $product_image = $data->cover_image;
+$product_stock = $data->product_stock;
 
 //die();
 
@@ -71,12 +75,12 @@ $product_image = $data->cover_image;
 
 
 
-              $delete = $product->delete($product_id);
+        $delete = $product->delete($product_id);
 
-              if($delete) {
+        if($delete) {
 
-                redirect::to('index.php');
-              }
+          redirect::to('index.php');
+        }
 
 
       }
@@ -140,7 +144,30 @@ $product_image = $data->cover_image;
                   <input type="number" name="product_quantity" class="form-control" value=1>
                 </div>
 
-                <button class="btn btn-primary" type="submit" name="add_to_cart">Add to Cart</button>
+                <?php
+
+                if($product_stock == 0) {
+
+                  ?>
+                  <button class="btn btn-danger">Out of Stock</button>
+
+                  <?php
+                } else {
+
+
+
+                  ?>
+
+                  <button class="btn btn-primary" type="submit" name="add_to_cart">Add to Cart</button>
+
+
+                  <?php
+
+                }
+
+                ?>
+
+
 
                 <?php
               }

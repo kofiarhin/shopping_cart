@@ -337,6 +337,7 @@ template {
 
 html, body {
   font-family: 'Roboto', sans-serif;
+  padding-bottom: 100px;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul {

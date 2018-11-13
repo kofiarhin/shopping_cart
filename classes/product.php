@@ -20,6 +20,24 @@ class Product {
   }
 
 
+  public function update($product_id, $fields) {
+
+
+        $update = $this->db->update('products', $fields,  array('id', '=',  $product_id));
+
+        if($update) {
+
+          session::flash("success", "Product details successfully updated");
+
+          return true;
+        }
+
+
+        return false;
+
+  }
+
+
   public function exist() {
 
     return (!empty($this->data)) ? true : false;
@@ -33,6 +51,27 @@ class Product {
 
   public function delete($id) {
 
+
+        //update the products table to deleted;
+
+
+        $fields = array(
+
+        'deleted' => 1
+
+      );
+
+
+            $update = $this->db->update('products', $fields, array('id', '=', $id));
+
+            if($update) {
+
+                  return true;
+            }
+
+
+        /*
+
           $delete = $this->db->delete('products', array('id', '=' , $id));
 
           if($delete) {
@@ -40,6 +79,11 @@ class Product {
             session::flash("success", "Product Deleted");
             return true;
           }
+
+          return false;
+
+          */
+
 
           return false;
   }
@@ -63,12 +107,32 @@ class Product {
 
       } else {
 
+            $sql ="select * from products where deleted != ?";
+
+            $fields = array(
+
+            'deleted' => 1
+
+          );
+
+
+          $query = $this->db->query($sql, $fields);
+
+          if($query->count()) {
+
+            return($query->result());
+          }
+
+          /*
+
            $query = $this->db->get('products');
 
            if($query->count()) {
 
              return $query->result();
            }
+
+           */
       }
 
       return false;

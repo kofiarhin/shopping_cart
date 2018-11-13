@@ -50,8 +50,9 @@ $datas  = $product->get_products();
             <div class="item-image" style="background-image: url(uploads/<?php echo $data->cover_image; ?>);"></div>
 
             <div class="content">
-              <a href="view_product.php?id=<?php echo $data->id; ?>" class="item-name"><?php echo $product_name;?></a>
+              <a href="view_product.php?product_id=<?php echo $data->id; ?>" class="item-name"><?php echo $product_name;?></a>
               <p class="text item-price">$<?php echo $data->product_price?></p>
+              <p class="text">Stock: <?php echo $data->product_stock; ?></p>
 
 
             </div>
@@ -65,6 +66,14 @@ $datas  = $product->get_products();
 
         <?php
       }
+    } else {
+
+
+      ?>
+
+            <a href="create_product.php" class="alert alert-info text-center">Post Some products</a>
+
+      <?php
     }
 
     ?>

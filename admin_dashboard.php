@@ -25,6 +25,18 @@ if($username != "admin") {
   <div class="row">
 
 
+
+    <div class="col-md-4">
+
+      <div class="option-unit">
+        <i class="fa fa-first-order" aria-hidden="true"></i>
+        <p class="text"><a href="users.php">Products</a></p>
+
+      </div>
+    </div>
+    
+
+
     <div class="col-md-4">
 
       <div class="option-unit">
@@ -48,14 +60,7 @@ if($username != "admin") {
     </div>
 
 
-    <div class="col-md-4">
 
-      <div class="option-unit">
-        <i class="fa fa-first-order" aria-hidden="true"></i>
-        <p class="text"><a href="users.php">Post Product</a></p>
-
-      </div>
-    </div>
 
   </div>
 
