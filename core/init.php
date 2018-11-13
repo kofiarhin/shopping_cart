@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	session_start();
 
@@ -18,7 +18,7 @@
 	spl_autoload_register(function($class){
 
 		require_once $class.".php";
-		
+
 	});
 
 
@@ -29,7 +29,7 @@
 
 			'host' => '127.0.0.1',
 			'dbname' => 'test',
-			'user' => 'root', 
+			'user' => 'root',
 			'password' =>'root'
 		),
 
@@ -37,7 +37,8 @@
 		'session' => array(
 
 			'session_name' => 'user',
-			'token_name' => 'token'
+			'token_name' => 'token',
+			'cart_name' =>  'cart'
 
 		),
 

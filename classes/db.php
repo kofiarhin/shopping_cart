@@ -14,11 +14,11 @@ class Db {
 
 	private function __construct() {
 
-		$this->pdo = new PDO("mysql:host=localhost;dbname=test", 'root', 'root');
+		$this->pdo = new PDO("mysql:host=localhost;dbname=shopping_cart", 'root', 'root');
 
 
 
-		echo "connected";
+		//echo "connected";
 
 
 
