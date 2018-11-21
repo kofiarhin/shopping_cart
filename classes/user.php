@@ -31,6 +31,67 @@
         }
       }
 
+      public function update($fields, $user_id) {
+
+
+
+        $update = $this->db->update("users", $fields, array('id', '=', $user_id));
+
+        if($update) {
+
+          session::flash("success", "Your account has been updated");
+          return true;
+        }
+
+        return false;
+      }
+
+
+      public function update_profile($file_new_name, $user_id) {
+
+
+
+          //get old file and delete it
+
+            $user = $this->db->get('users', array('id', '=', $user_id));
+
+            if($user->count()) {
+
+              $profile_pic = $user->first()->profile_pic;
+
+
+              $file_path = __dir__."/../uploads/".$profile_pic;
+
+              if(file_exists($file_path)) {
+
+                unlink($file_path);
+              } 
+            }
+
+
+
+            $fields = array(
+
+                'profile_pic' => $file_new_name
+            );
+
+
+            $update = $this->db->update('users', $fields, array('id', '=', $user_id));
+
+            if($update) {
+
+              session::flash("success", "profile successfully updated");
+
+              return true;
+            } 
+
+
+
+            return false;
+        
+      }
+
+
 
       public function logged_in() {
 

@@ -29,6 +29,14 @@ $product_description = $data->product_description;
 $product_image = $data->cover_image;
 $product_stock = $data->product_stock;
 
+
+$file_path = "uploads/".$product_image;
+
+if(!file_exists($file_path)) {
+
+
+  $product_image = "default-item.png";
+}
 //die();
 
 
@@ -47,22 +55,51 @@ $product_stock = $data->product_stock;
 
       if(input::exist("post", 'add_to_cart')) {
 
-        $cart = new Cart;
+        $product = new Product($product_id);
 
-        $fields = array(
+        if($product->exist()) {
 
-          'product_id' => (int) input::get("product_id"),
-          'product_name' => input::get("product_name"),
-          'product_price' => (int)  input::get('product_price'),
-          'product_quantity' => (int) input::get('product_quantity')
+          $stock = $product->data()->product_stock;
 
 
-        );
+
+          $current_order = input::get("product_quantity");
+
+
+          if($current_order > $stock) {
+
+             ?>
+
+
+        <p class="alert alert-danger text-center">Oder more than stock available!</p>
+
+             <?php 
+          } else {
+
+            $cart = new Cart;
+
+            $fields = array(
+
+              'product_id' => (int) input::get("product_id"),
+              'product_name' => input::get("product_name"),
+              'product_price' => (int)  input::get('product_price'),
+              'product_quantity' => (int) input::get('product_quantity')
+
+
+            );
 
         //add fields to cart
-        $add = $cart->add_to_cart($fields);
+            $add = $cart->add_to_cart($fields);
 
-        redirect::to('index.php');
+            redirect::to('index.php');
+          }
+
+
+
+        }
+       // die();
+
+        
 
         //redirect::to('index.php');
 

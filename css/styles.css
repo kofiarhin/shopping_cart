@@ -351,6 +351,15 @@ h1, h2, h3, h4, h5, h6, p, ul {
   margin-bottom: 20px;
 }
 
+.profile-face {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 20px;
+  cursor: pointer;
+}
+
 .main-header {
   margin-bottom: 30px;
   padding: 20px;

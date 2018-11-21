@@ -30,7 +30,7 @@ if($username != "admin") {
 
       <div class="option-unit">
         <i class="fa fa-first-order" aria-hidden="true"></i>
-        <p class="text"><a href="users.php">Products</a></p>
+        <p class="text"><a href="products.php">Products</a></p>
 
       </div>
     </div>

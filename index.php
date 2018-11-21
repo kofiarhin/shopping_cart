@@ -40,6 +40,16 @@ $datas  = $product->get_products();
         //var_dump($data);
         $product_name = $data->product_name;
         $product_price = $data->product_price;
+        $cover_image = $data->cover_image;
+
+
+        $file_path = "uploads/".$cover_image;
+
+        if(!file_exists($file_path)) {
+
+
+          $cover_image = "default-item.png";
+        }
 
 
         ?>
@@ -47,7 +57,7 @@ $datas  = $product->get_products();
 
           <div class="item-unit">
 
-            <div class="item-image" style="background-image: url(uploads/<?php echo $data->cover_image; ?>);"></div>
+            <div class="item-image" style="background-image: url(uploads/<?php echo $cover_image; ?>);"></div>
 
             <div class="content">
               <a href="view_product.php?product_id=<?php echo $data->id; ?>" class="item-name"><?php echo $product_name;?></a>
